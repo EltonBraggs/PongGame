@@ -1,0 +1,42 @@
+<!-- MainWindow.axaml: This script designs the layout of the pong game. It uses Avalonia based UI framework that allows
+to create desktop applications that run on Windows, macOS, and Linux.  -->
+
+<!-- Sources: XAML Construction : https://www.youtube.com/watch?v=TA0VSIrCFw4 ,VectorArt channel , StackoverFlow -->
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="800" d:DesignHeight="600"
+        x:Class="PongGame.MainWindow"
+        Title="PongGame" Background="Blue">
+	<Canvas>
+		<!-- Paddles and ball are added directly to the Canvas -->
+		<Ellipse x:Name="internalBall" Width="20" Height="20" Fill="White"/>
+
+		<!-- Center the left paddle horizontally -->
+		<Rectangle x:Name="paddleLeft" Fill="White" Width="20" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+		<!-- Center the right paddle horizontally -->
+		<Rectangle x:Name="paddleRight" Fill="White" Width="20" Height="100" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+		<!-- Score text for the left paddle -->
+		<TextBlock x:Name="scoreLeftText" Foreground="White" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0"/>
+
+		<!-- Score text for the right paddle -->
+		<TextBlock x:Name="scoreRightText" Foreground="White" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="200,10,100,0"/>
+
+		<!-- Pause TextBlock -->
+		<TextBlock x:Name="pauseText" Foreground="Red" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="400,10,100,0" />
+		<!-- Button to Pause the game -->
+		<Button Content="Pause/Resume" Width="120" Height="40" Click="PauseResume_Click" Margin="400,10,100,0" Foreground="Red"/>
+
+		<!-- Restart TextBlock: Gives info about the restart status of the game -->
+		<TextBlock x:Name="restartText" IsVisible="False" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="400,200,200,0"/>
+		<!-- Button to restart the game -->
+		<Button Content="Restart" Width="100" Height="40" Click="RestartGame_Click"  Margin="700,10,100,0" Foreground="Black" />
+		
+		<!-- Winner TextBlock -->
+		<TextBlock Name="winnerText" Foreground="White" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="100,300,0,0"/>
+	</Canvas>
+</Window>
